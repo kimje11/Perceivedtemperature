@@ -40,19 +40,14 @@ from sklearn.preprocessing import PolynomialFeatures
 poly = PolynomialFeatures(include_bias=False)
 poly.fit(train_input)
 train_poly = poly.transform(train_input)
-# print(train_poly.shape)
 
 test_poly = poly.transform(test_input)
-# print(test_input.shape)
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(train_poly, train_target)
-# print(lr.score(train_poly, train_target))
-# print(lr.score(test_poly, test_target))
 sample = PolynomialFeatures(include_bias=False)
 sample.fit([[number1, number2]])
 sample_poly = sample.transform([[number1, number2]])
-# print(train_poly.shape)
 result = lr.predict(sample_poly)
 print(result)
 if result<5:
